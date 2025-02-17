@@ -1,15 +1,50 @@
 # @playai/aura
 
-To install dependencies:
+## Getting Started
 
-```bash
-bun install
+This project is initialized with [Bun](https://bun.sh/).
+
+### Installation
+
+#### Linux & macOS
+
+```sh
+curl -fsSL https://bun.sh/install | bash
 ```
 
-To run:
+#### Windows
 
-```bash
-bun run src/index.ts
+```powershell
+powershell -c "irm bun.sh/install.ps1 | iex"
 ```
 
-This project was created using `bun init` in bun v1.1.42. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+### Setup
+
+1. Install dependencies:
+    ```sh
+    bun install
+    ```
+
+2. Setup the database:
+    ```sh
+    bun run migrate
+    ```
+   This initializes a persistent [pglite](https://pglite.dev/) database with local storage. PgLite is a lightweight,
+   embedded PostgreSQL-compatible database designed for local development and testing.
+
+3. Open database explorer using [Drizzle](https://orm.drizzle.team/):
+    ```sh
+    bun run studio
+    ```
+
+### Running the Server
+
+- To start the development server:
+    ```sh
+    bun run dev
+    ```
+
+- To start the server:
+    ```sh
+    bun run start
+    ```
