@@ -66,11 +66,12 @@ powershell -c "irm bun.sh/install.ps1 | iex"
     - `payment`: An optional value representing the amount of SOL tokens the user must transfer to utilize the service.
       If not set, no payment is required.
 
-   > [!NOTE]
-   > The payment will be sent to the associated wallet with the agent to which this service is linked. This is not shown
-   here since it's a minimal implementation.
+> [!NOTE]
+> The payment will be sent to the associated wallet with the agent to which this service is linked. This is not shown
+> here since it's a minimal implementation.
 
-   Example:
+Example:
+
    ```sh
    curl http://localhost:3000/aura/create \
    --request POST \
