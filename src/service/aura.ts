@@ -1,6 +1,6 @@
 import db, { schema } from "../drizzle";
 import { count, eq } from "drizzle-orm";
-import { HttpException } from "../../util";
+import { HttpException } from "../util";
 
 type CreateServicePayload = {
   name: string;
@@ -76,7 +76,7 @@ export async function useService({
 }: {
   id: string;
   body: {
-    [key: string]: any;
+    [_: string]: any;
   };
 }) {
   const [service] = (await db

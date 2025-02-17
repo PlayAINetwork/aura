@@ -1,6 +1,6 @@
 import { Elysia, t } from "elysia";
 import { AuraService } from "../service";
-import { pagination } from "../../util";
+import { pagination } from "../util";
 
 export default new Elysia({
   name: "Aura.Route",

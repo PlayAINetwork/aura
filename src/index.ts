@@ -1,7 +1,7 @@
 import { cors } from "@elysiajs/cors";
 import { swagger } from "@elysiajs/swagger";
 import { Elysia } from "elysia";
-import { HttpException } from "../util";
+import { HttpException } from "./util";
 import { AuraRouter } from "./route";
 
 const app = new Elysia();
