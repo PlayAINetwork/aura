@@ -67,11 +67,7 @@ powershell -c "irm bun.sh/install.ps1 | iex"
     - `payment`: An optional value representing the amount of SOL tokens the user must transfer to utilize the service.
       If not set, no payment is required.
 
-> [!NOTE]
-> The payment will be sent to the associated wallet with the agent to which this service is linked. This is not shown
-> here since it's a minimal implementation.
-
-Example:
+   Example:
 
    ```sh
    curl http://localhost:3000/aura/create \
@@ -91,7 +87,11 @@ Example:
    "requestType": "POST",
    "payment": 0.05
    }'
-   ```
+      ```
+
+> [!NOTE]
+> The payment will be sent to the associated wallet with the agent to which this service is linked. This is not shown
+> here since it's a minimal implementation.
 
 2. Retrieve all Aura services:
 
@@ -141,9 +141,6 @@ Example:
 
    Example:
 
-> [!NOTE]
-> The `signature` field is optional and only required if the service requires payment.
-
    ```sh
    curl 'http://localhost:3000/aura/service/{id}' \
      --request POST \
@@ -154,12 +151,15 @@ Example:
    }'
    ```
 
-> [!NOTE]
-> Currently, this API returns the raw results from the endpoint to the frontend. To ensure consistent presentation of
-> results, developers should adhere to a standardized response format in future implementations.   ```json
-
    ```json
    {
-  "video": "http://example.com/rogue.mp4"
-}
+     "video": "http://example.com/rogue.mp4"
+   }
    ```
+
+> [!NOTE]
+> The `signature` field is optional and only required if the service requires payment.
+
+> [!NOTE]
+> Currently, this API returns the raw results from the endpoint to the frontend. To ensure consistent presentation of
+> results, developers should adhere to a standardized response format in future implementations.
