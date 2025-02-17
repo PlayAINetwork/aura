@@ -48,6 +48,7 @@ powershell -c "irm bun.sh/install.ps1 | iex"
     ```sh
     bun run start
     ```
+- You can view the API documentation at the `/docs` endpoint.
 
 ## Aura Setup
 
@@ -133,3 +134,32 @@ Example:
    --request DELETE
    ```
 
+4. Call an Aura service:
+
+   To call an Aura service, make a POST request to the `/aura/service/{id}` endpoint. Replace `{id}` with the ID of the
+   service you want to call. The request should include the necessary data in the body.
+
+   Example:
+
+> [!NOTE]
+> The `signature` field is optional and only required if the service requires payment.
+
+   ```sh
+   curl 'http://localhost:3000/aura/service/{id}' \
+     --request POST \
+     --header 'Content-Type: application/json' \
+     --data '{
+     "message": "Talk about the rug pull by Javier Milei & Hayden Davis",
+     "signature": "4pfgaYWuKLTUNKBmrra4vzXCWvAMCH4K6YrbQEMHos3ArAqoreARgqGWVBzxr5VL65ZiPxeVk7t65fp3n2ZGRi8z"
+   }'
+   ```
+
+> [!NOTE]
+> Currently, this API returns the raw results from the endpoint to the frontend. To ensure consistent presentation of
+> results, developers should adhere to a standardized response format in future implementations.   ```json
+
+   ```json
+   {
+  "video": "http://example.com/rogue.mp4"
+}
+   ```
