@@ -137,7 +137,8 @@ powershell -c "irm bun.sh/install.ps1 | iex"
 4. Call an Aura service:
 
    To call an Aura service, make a POST request to the `/aura/service/{id}` endpoint. Replace `{id}` with the ID of the
-   service you want to call. The request should include the necessary data in the body.
+   service you want to call. The request should include the necessary data mentioned in the `input` field of the service
+   creation.
 
    Example:
 
