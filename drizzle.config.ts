@@ -4,10 +4,13 @@ export default defineConfig({
   dialect: "postgresql",
   schema: "./src/drizzle/schema.ts",
   out: "./src/drizzle/migration",
-  driver: "pglite",
   dbCredentials: {
-    url: "./src/drizzle/PGlite",
+    url:
+      process.env.NODE_ENV === "local"
+        ? "./src/drizzle/PGlite"
+        : process.env.DATABASE_URL!,
   },
   verbose: true,
   strict: true,
+  ...(process.env.NODE_ENV === "local" ? { driver: "pglite" } : {}),
 });

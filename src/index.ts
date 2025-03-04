@@ -2,7 +2,7 @@ import { cors } from "@elysiajs/cors";
 import { swagger } from "@elysiajs/swagger";
 import { Elysia } from "elysia";
 import { HttpException } from "./util";
-import { AuraRouter } from "./route";
+import { AgentRouter, AuraRouter } from "./route";
 
 const app = new Elysia();
 
@@ -36,6 +36,6 @@ app.onError(({ error }) => {
   }
 });
 
-app.use(AuraRouter);
+app.use(AuraRouter).use(AgentRouter);
 
 app.listen(3000, (s) => console.log(`Server started at ${s.url}`));

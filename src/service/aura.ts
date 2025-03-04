@@ -57,7 +57,7 @@ export async function getServices({
     total,
     page,
     limit,
-    result: data.map((service) => ({
+    result: data.map((service: any) => ({
       id: service.id,
       name: service.data.name,
       input: service.data.input,

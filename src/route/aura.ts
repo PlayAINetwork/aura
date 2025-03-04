@@ -10,6 +10,8 @@ export default new Elysia({
   .post("/create", ({ body }) => AuraService.createService(body), {
     body: t.Object({
       name: t.String(),
+      twitter: t.Optional(t.String()),
+      command: t.String(),
       headers: t.Record(t.String(), t.String()),
       //Minimal implementation. More validations and sub validations can be added such for checking for file mime types, etc.
       input: t.Record(t.String(), t.String()),
