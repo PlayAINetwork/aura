@@ -20,9 +20,7 @@ export const tweet = pgTable("tweet", {
   id: varchar("id", {
     length: 255,
   }).primaryKey(),
-  serviceId: uuid("service_id")
-    .notNull()
-    .references(() => service.id),
+  serviceId: uuid("service_id").references(() => service.id),
   createdAt: timestamp("created_at", {
     withTimezone: true,
   })

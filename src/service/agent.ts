@@ -1,9 +1,8 @@
 import { ethers } from "ethers";
+import { generateKeyPair, getAddressFromPublicKey } from "@solana/kit";
 
 export async function generateKoalaImage(prompt: string) {
   const account = ethers.Wallet.createRandom();
-
-  console.log(account.address);
 
   await fetch("https://art.koalaai.vip/api/accounts", {
     method: "POST",
@@ -31,4 +30,24 @@ export async function generateKoalaImage(prompt: string) {
   //     imageUrl: "https://koala-ai.s3.tebi.io/generated-images/0xcdc2CB5679f95FEFE66EaDD9FD5dfDA7d0D7e89a/generated-image-2025-03-04T23%3A42%3A21.587Z.png",
   //     originalImageUrl: "https://koala-ai.s3.tebi.io/generated-images/0xcdc2CB5679f95FEFE66EaDD9FD5dfDA7d0D7e89a/original-image-2025-03-04T23%3A42%3A18.942Z.png",
   // }
+}
+
+export async function generateRogueVideo(prompt: string) {
+  const account = await generateKeyPair();
+
+  const res = await fetch(
+    "https://render-video.agentexperience.live/generate",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        admin: "J+Mgog#JDDP#",
+      },
+      body: JSON.stringify({
+        prompt,
+        wallet: await getAddressFromPublicKey(account.publicKey),
+      }),
+    },
+  );
+  return res.json();
 }
